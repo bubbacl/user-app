@@ -9,32 +9,27 @@ import { HttpClient } from '@angular/common/http';
 export class UserService {
 
   constructor(
-    private _http:HttpClient
+    private http: HttpClient
   ) { }
 
   create(user: User) {
-    return this._http.post('/users', user)
-      .map(data => data.json()).toPromise()
+    return this.http.post('/users', user);
   }
 
   destroy(user: User) {
-    return this._http.delete('/users/' + user._id)
-      .map(data => data.json()).toPromise()
+    return this.http.delete('/users/' + user._id);
   }
 
   update(user: User) {
-    return this._http.put('/users/' + user._id, user)
-      .map(data => data.json()).toPromise()
+    return this.http.put('/users/' + user._id, user);
   }
 
   getUsers() {
-    return this._http.get('/users')
-      .map(data => data.json()).toPromise()
+    return this.http.get('/users');
   }
 
   getUser(user: User) {
-    return this._http.get('/users/' + user._id)
-      .map(data => data.json()).toPromise()
+    return this.http.get('/users/' + user._id);
   }
 
 }
