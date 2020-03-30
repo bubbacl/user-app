@@ -1,4 +1,5 @@
 const express = require('express');
+const app = express();
 const path = require('path');
 
 const bodyParser = require('body-parser');
@@ -7,9 +8,8 @@ const mongoose = require('mongoose');
 
 const apiRouter = require('./routes/api_v1');
 
-const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/userdb', {
-    useMongoClient: true
+    promiseLibrary: global.Promise
 });
 
 // Middlewares

@@ -3,21 +3,21 @@ const Schema = mongoose.Schema;
 
 let UserSchema = new Schema({
     first_name: {
-        type: string,
+        type: String,
         required: true
     },
     last_name: {
-        type: string,
+        type: String,
         required: true
     },
     email: {
-        type: string,
+        type:String,
         required: true
     },
     editable: {
-        type: boolean,
-        required: true
+        type: Boolean,
+        default: false
     }
 });
 
-module.exports = mongoose('User', UserSchema);
+module.exports = mongoose.model('User', UserSchema);
