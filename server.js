@@ -9,7 +9,25 @@ const mongoose = require('mongoose');
 const apiRouter = require('./routes/api_v1');
 
 mongoose.connect('mongodb://localhost/userdb', {
-    promiseLibrary: global.Promise
+    promiseLibrary: global.Promise,
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+});
+
+var MongoClient = require('mongodb').MongoClient
+    , assert = require('assert');
+
+// Connection URL
+var url = 'mongodb://localhost:27017/myproject';
+
+// Use connect method to connect to the server
+MongoClient.connect(url, function(err, db) {
+    assert.equal(null, err);
+    console.log("Connected succesfully to server");
+
+    db.close();
 });
 
 // Middlewares
